@@ -6,8 +6,12 @@
 
 {% block content %}
     <h2>Newest posts</h2>
-    {% for post in posts %}
-        <h3>{{ post.title }} <i>(id: {{ post.id }})</i></h3>
-        <p>{{ post.content }}</p>
-    {% endfor %}
+    {% if posts %}
+        {% for post in posts %}
+            <h3>{{ post.title }} <i>(id: {{ post.id }})</i></h3>
+            <p>{{ post.content }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No posts</p>
+    {% endif %}
 {% endblock %}
