@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home - Karboard
+{% endblock %}
+
+{% block content %}
+    <h3>{{ post.title }} <i>(id: {{ post.id }})</i></h3>
+    <p>{{ post.content }}</p>
+{% endblock %}
