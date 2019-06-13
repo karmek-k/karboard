@@ -7,8 +7,8 @@
 {% block content %}
     <form method="post" action="{% url 'submit_post' %}">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Title"><br><br>
-        <input type="text" name="content" placeholder="Content"><br><br>
+        <input type="text" name="title" placeholder="Title"/><br/><br/>
+        <textarea name="content" placeholder="Content" rows=5 cols=25></textarea><br/><br/>
         <input type="submit" value="Submit">
     </form>
 {% endblock %}
