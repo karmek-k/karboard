@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.http import Http404
+from django.shortcuts import render, redirect, get_object_or_404
+
 from .models import Post
 from .forms import PostForm
 
@@ -22,8 +22,10 @@ def submit_post(request):
 
 
 def view_post(request, post_id):
-    try:
-        response_post = Post.objects.get(pk=post_id)
-    except Post.DoesNotExist:
-        raise Http404('No such post')
-    return render(request, 'view_post.html', {'post': response_post})
+    response_post = get_object_or_404(Post, pk=post_id)
+    replies = response_post.reply_set.all()
+    context = {
+        'post': response_post,
+        'replies': replies
+    }
+    return render(request, 'view_post.html', context)

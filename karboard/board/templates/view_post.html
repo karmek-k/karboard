@@ -6,5 +6,14 @@
 
 {% block content %}
     <h3>{{ post.title }} <i>(id: {{ post.id }})</i></h3>
-    <p>{{ post.content }}</p>
+    <p>{{ post.content }}</p><br/>
+    <h2>Replies</h2>
+    {% if replies %}
+        {% for reply in replies %}
+            <p>{{ reply.content }}</p>
+            <br/>
+        {% endfor %}
+    {% else %}
+        <p>No replies</p>
+    {% endif %}
 {% endblock %}

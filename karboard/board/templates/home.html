@@ -10,6 +10,8 @@
         {% for post in posts %}
             <h3>{{ post.title }} <i>(id: {{ post.id }})</i></h3>
             <p>{{ post.content }}</p>
+            <small><a href="{% url 'view_post' post.id %}">View replies</a></small>
+            <br/><br/>
         {% endfor %}
     {% else %}
         <p>No posts</p>
